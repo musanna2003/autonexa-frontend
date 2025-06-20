@@ -4,6 +4,7 @@ import Root from '../Pages/Root';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
+import AvailableCars from '../Pages/AvailableCars';
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
                 path : "/",
                 // loader : () => fetch("https://phassignment102.vercel.app/recipes/sort"),
                 Component : Home,
+            },
+            {
+                path : "/available",
+                Component : AvailableCars
             },
             {
                 path : '/login',
