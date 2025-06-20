@@ -5,6 +5,7 @@ const Nav = () => {
     const nav = <>
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/available">Available Cars</NavLink></li>
+                    <li><NavLink to="/addcar">Add Car</NavLink></li>
                     <li><NavLink to="/Login">Login</NavLink></li>
                 </> 
 

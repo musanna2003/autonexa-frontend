@@ -6,6 +6,7 @@ import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import AvailableCars from '../Pages/AvailableCars';
 import Details from '../Pages/Details';
+import Addcars from '../Pages/Addcars';
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path : "/available",
                 Component : AvailableCars
+            },
+            {
+                path : "/addcar",
+                element : <Addcars></Addcars>
             },
             {
                 path : '/login',

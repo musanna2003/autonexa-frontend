@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Card = () => {
     return (
@@ -15,7 +16,7 @@ const Card = () => {
                 <p>Booking count:</p>
                 <p>Date Posted:</p>
                 <div className="card-actions w-full ">
-                    <button className="btn w-full btn-primary">Book Now</button>
+                    <Link to="/details" className="btn w-full btn-primary">View Details</Link>
                 </div>
             </div>
         </div>
