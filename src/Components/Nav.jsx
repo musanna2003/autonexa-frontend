@@ -1,7 +1,22 @@
-import React from 'react';
-import { NavLink } from 'react-router';
+import React, { useContext } from 'react';
+import { NavLink, useNavigate } from 'react-router';
+import { MyContext } from '../MyContext';
 
 const Nav = () => {
+
+    const {user,signOutUser} = useContext(MyContext);
+    const navigate = useNavigate();
+    const handelLogout = () =>{
+        signOutUser().then(() => {
+            // Sign-out successful.
+           
+            navigate("login")
+          }).catch((error) => {
+            // An error happened.
+            console.log(error);
+          });;
+    }
+
     const nav = <>
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/available">Available Cars</NavLink></li>
@@ -24,7 +39,7 @@ const Nav = () => {
                     }
                 </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a href='/' className="btn btn-ghost text-xl">Flavorly</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -34,7 +49,26 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                {
+                    !user?
+                        <a href='/login' className="btn btn-ghost hover:bg-black/5 hover:border-0">
+                            Login
+                        </a>
+                        :
+                        <>
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="mx-[1vw]">
+                                    
+                                        <img className=" w-10 rounded-full" src={ user.photoURL || "https://i.ibb.co.com/NdFHxWHB/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg"} />
+                                   
+                                </div>
+                                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                                    <li><a href="">{user.displayName || "User"}</a></li>
+                                    <li><a onClick={handelLogout} >Logout</a></li>
+                                </ul>
+                            </div>
+                        </>
+                }
             </div>
         </div>
     );
