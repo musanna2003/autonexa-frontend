@@ -7,7 +7,7 @@ const Slider1 = () => {
                 className="hero h-[35vw] rounded-2xl"
                 style={{
                     backgroundImage:
-                    "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
+                    "url(https://images.pexels.com/photos/733745/pexels-photo-733745.jpeg)",
                 }}
                 >
                 <div className="hero-overlay"></div>

@@ -16,15 +16,17 @@ const router = createBrowserRouter([
             {
                 index : true,
                 path : "/",
-                // loader : () => fetch("https://phassignment102.vercel.app/recipes/sort"),
+                loader : () => fetch("http://localhost:3000/cars/sort"),
                 Component : Home,
             },
             {
-                path : "/details",
+                path : "/details/:id",
+                loader : ({params}) => fetch(`http://localhost:3000/cars/${params.id}`),
                 Component: Details
             },
             {
                 path : "/available",
+                loader : () => fetch("http://localhost:3000/cars"),
                 Component : AvailableCars
             },
             {

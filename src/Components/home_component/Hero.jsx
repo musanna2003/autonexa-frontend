@@ -7,7 +7,7 @@ const Hero = () => {
                 className="hero min-h-screen rounded-2xl"
                 style={{
                     backgroundImage:
-                    "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
+                    "url(https://images.pexels.com/photos/30145511/pexels-photo-30145511.jpeg)",
                 }}
                 >
                 <div className="hero-overlay"></div>

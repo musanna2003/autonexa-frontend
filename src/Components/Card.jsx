@@ -4,24 +4,24 @@ import { motion } from 'framer-motion';
 
 console.log(motion)
 
-const Card = () => {
+const Card = ({car}) => {
     return (
         <div className="card bg-base-100 shadow-sm">
-            <figure>
+            <figure className='h-[50%]'>
                 <motion.img
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
-                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                    alt="Shoes"
-                    className="w-full h-auto object-cover"
+                    src={car.imageUrl || "https://via.placeholder.com/400x300?text=No+Image"}
+                    alt={car.carModel || "Car"}
+                    className="w-full h-60 object-cover rounded-md"
                 />
             </figure>
-            <div className="card-body">
-                <h2 className="card-title">Model: </h2>
-                <p>Daily Price: </p>
-                <p>Availability:</p>
-                <p>Booking count:</p>
-                <p>Date Posted:</p>
+            <div className="card-body h-[50%]">
+                <h2 className="card-title">Model: {car.carModel}</h2>
+                <p>Daily Price : {car.dailyRentalPrice} </p>
+                <p>Availability: {car.availability ? "Available" : "Not Available"}</p>
+                <p>Booking count: {car.count}</p>
+                <p>Date Posted: {car.date}</p>
                 <div className="card-actions w-full ">
                     <Link to="/details" className="btn w-full btn-primary">View Details</Link>
                 </div>
