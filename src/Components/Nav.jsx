@@ -21,10 +21,12 @@ const Nav = () => {
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/available">Available Cars</NavLink></li>
                     <li><NavLink to="/addcar">Add Car</NavLink></li>
+                    <li><NavLink to={`/mycars/${user?.email}`}>my Cars</NavLink></li>
+                    {console.log(user?.email)}
                 </> 
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-primary shadow-sm">
             <div className="navbar-start">
                 <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

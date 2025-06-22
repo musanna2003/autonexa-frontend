@@ -2,9 +2,9 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <div className="w-[90vw] md:w-[90vw] mx-auto ">
+        <div className="">
             <div
-                className="hero min-h-screen rounded-2xl"
+                className="hero min-h-screen rounded-b-2xl"
                 style={{
                     backgroundImage:
                     "url(https://images.pexels.com/photos/30145511/pexels-photo-30145511.jpeg)",

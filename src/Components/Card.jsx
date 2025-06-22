@@ -23,7 +23,7 @@ const Card = ({car}) => {
                 <p>Booking count: {car.count}</p>
                 <p>Date Posted: {car.date}</p>
                 <div className="card-actions w-full ">
-                    <Link to="/details" className="btn w-full btn-primary">View Details</Link>
+                    <Link to={`/cars/details/${car._id}`} className="btn w-full btn-primary">View Details</Link>
                 </div>
             </div>
         </div>

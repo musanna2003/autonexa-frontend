@@ -1,19 +1,26 @@
 import React from 'react';
+import { useLoaderData } from 'react-router';
 
 const Details = () => {
+
+    const car = useLoaderData();
+    console.log(car)
+
     return (
         <div className="card bg-base-100 max-w-3xl mx-auto shadow-sm my-16">
             <figure>
                 <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
+                src={car.imageUrl || "https://via.placeholder.com/400x300?text=No+Image"}
+                alt={car.carModel || "Car"}/>
             </figure>
             <div className="card-body">
-                <h2 className="card-title">Model: </h2>
-                <p>Daily Price: </p>
-                <p>Availability:</p>
-                <p>Booking count:</p>
-                <p>Date Posted:</p>
+                <h2 className="card-title">Model: {car.carModel}</h2>
+                <p>Daily Price : {car.dailyRentalPrice} </p>
+                <p>Availability: {car.availability ? "Available" : "Not Available"}</p>
+                <p>Booking count: {car.count}</p>
+                <p>Discription :{car.description}</p>
+                <p>Date Posted: {car.date}</p>
+                
                 <div className="card-actions w-full ">
                     <button className="btn w-full btn-primary" onClick={()=>document.getElementById('my_modal_3').showModal()}>Book Now</button>
                 </div>

@@ -7,6 +7,8 @@ import Register from '../Pages/Register';
 import AvailableCars from '../Pages/AvailableCars';
 import Details from '../Pages/Details';
 import Addcars from '../Pages/Addcars';
+import PrivetRoute from './PrivetRoute';
+import MyCars from '../Pages/MyCars';
 
 const router = createBrowserRouter([
     {
@@ -20,18 +22,23 @@ const router = createBrowserRouter([
                 Component : Home,
             },
             {
-                path : "/details/:id",
-                loader : ({params}) => fetch(`http://localhost:3000/cars/${params.id}`),
-                Component: Details
+                path : "/cars/details/:id",
+                loader : ({params}) => fetch(`http://localhost:3000/cars/details/${params.id}`),
+                element : <PrivetRoute><Details></Details></PrivetRoute>
             },
             {
                 path : "/available",
                 loader : () => fetch("http://localhost:3000/cars"),
-                Component : AvailableCars
+                element : <AvailableCars></AvailableCars>
+            },
+            {
+                path : "/mycars/:email",
+                loader : ({params}) => fetch(`http://localhost:3000/mycars/${params.email}`),
+                element : <PrivetRoute><MyCars></MyCars></PrivetRoute>
             },
             {
                 path : "/addcar",
-                element : <Addcars></Addcars>
+                element : <PrivetRoute><Addcars></Addcars></PrivetRoute>
             },
             {
                 path : '/login',
