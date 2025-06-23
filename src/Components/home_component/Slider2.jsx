@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Slider2 = () => {
     return (
@@ -15,7 +16,7 @@ const Slider2 = () => {
                 <div className="hero-content text-neutral-content text-center">
                     <div className="max-w-2xl">
                     <h1 className="mb-5 text-2xl md:text-5xl lg:text-7xl font-bold">Luxury cars at $99/day this holiday season!</h1>
-                    <button className='btn'>Book Now</button>
+                    <Link to={"/available"} className='btn'>Book Now</Link>
                     </div>
                 </div>
             </div>

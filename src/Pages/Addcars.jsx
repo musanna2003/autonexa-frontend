@@ -26,7 +26,7 @@ const Addcars = () => {
             imageUrl: rawData.img,
             location: rawData.location,
             count: 0,
-            date: new Date().toISOString(),
+            date: new Date().toISOString().split("T")[0],
         };
         console.log(postData)
         

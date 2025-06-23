@@ -6,6 +6,11 @@ import { toast } from 'react-toastify';
 
 const Details = () => {
 
+    const car = useLoaderData();
+
+    const {user} = useContext(MyContext);
+    const navigate = useNavigate();
+
     const [from, setFrom] = useState("");
     const [to, setTo] = useState("");
     const [totalDays, setTotalDays] = useState(0);
@@ -19,11 +24,6 @@ const Details = () => {
             setTotalDays(days > 0 ? days : 0);
         }
     }, [from, to]);
-
-    const car = useLoaderData();
-
-    const {user} = useContext(MyContext);
-    const navigate = useNavigate();
 
     const handelbooking = (e) => {
         e.preventDefault();
@@ -43,13 +43,21 @@ const Details = () => {
                     }))
         }
 
+        const start = new Date(rawData.from);
+        const end = new Date(rawData.to);
+        const diff = end - start; // difference in milliseconds
+        const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+        const total = days * car.dailyRentalPrice;
+
         const postData = {
             user: user?.email,
             dailyRentalPrice: car.dailyRentalPrice,
             booking_id : car._id,
             from : rawData.from,
             to : rawData.to,
-            status : "Pending"
+            status : "Pending",
+            total : total,
+            date: new Date().toISOString().split("T")[0],
         };
         console.log(postData)
         
@@ -67,7 +75,7 @@ const Details = () => {
             progress: undefined,
             theme: "colored",
         });
-        navigate("/");
+        navigate(`/bookings/${user?.email}`);
         })
         .catch(error => {
         console.error('Error:', error);

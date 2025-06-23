@@ -21,7 +21,8 @@ const Nav = () => {
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/available">Available Cars</NavLink></li>
                     <li><NavLink to="/addcar">Add Car</NavLink></li>
-                    <li><NavLink to={`/mycars/${user?.email}`}>my Cars</NavLink></li>
+                    <li><NavLink to={`/mycars/${user?.email}`}>My Cars</NavLink></li>
+                    <li><NavLink to={`/bookings/${user?.email}`}>My Bookings</NavLink></li>
                 </> 
 
     return (
@@ -39,7 +40,7 @@ const Nav = () => {
                     }
                 </ul>
                 </div>
-                <a href='/' className="btn btn-ghost text-xl">Flavorly</a>
+                <a href='/' className="btn btn-ghost text-xl">AutoNexa</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

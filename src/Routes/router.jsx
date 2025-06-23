@@ -9,6 +9,7 @@ import Details from '../Pages/Details';
 import Addcars from '../Pages/Addcars';
 import PrivetRoute from './PrivetRoute';
 import MyCars from '../Pages/MyCars';
+import MyBookings from '../Pages/MyBookings';
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
                 path : "/mycars/:email",
                 loader : ({params}) => fetch(`http://localhost:3000/mycars/${params.email}`),
                 element : <PrivetRoute><MyCars></MyCars></PrivetRoute>
+            },
+            {
+                path : "/bookings/:email",
+                loader : ({params}) => fetch(`http://localhost:3000/bookings/${params.email}`),
+                element : <PrivetRoute><MyBookings></MyBookings></PrivetRoute>
             },
             {
                 path : "/addcar",
