@@ -37,20 +37,20 @@ const TableRow = ({car, index}) => {
             <th>
                 <button className='btn'><CiEdit /></button>
                 <button className='btn' onClick={()=>document.getElementById('my_modal_5').showModal()}><CiTrash /></button>
-            </th>
-            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">Press ESC key or click the button below to close</p>
-                    <div className="modal-action ">
-                        <form className='flex gap-2' method="dialog">
-                            {/* if there is a button in form, it will close the modal */}
-                            <button className="btn ">Cancel</button>
-                            <button className="btn btn-error ">Delete</button>
-                        </form>
+                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box">
+                        <h3 className="font-bold text-lg">Hello!</h3>
+                        <p className="py-4">Press ESC key or click the button below to close</p>
+                        <div className="modal-action ">
+                            <form className='flex gap-2' method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button className="btn ">Cancel</button>
+                                <button className="btn btn-error ">Delete</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </dialog>
+                </dialog>
+            </th>
         </tr>
     );
 };

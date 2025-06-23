@@ -8,7 +8,7 @@ const MyCars = () => {
 
     return (
         <div className='w-[90vw] md:w[90vw] mx-auto space-y-10'>
-            <div className='text-4xl font-bold'>my Cars</div>
+            <div className='text-4xl font-bold'>My Cars</div>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

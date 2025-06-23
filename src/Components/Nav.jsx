@@ -22,7 +22,6 @@ const Nav = () => {
                     <li><NavLink to="/available">Available Cars</NavLink></li>
                     <li><NavLink to="/addcar">Add Car</NavLink></li>
                     <li><NavLink to={`/mycars/${user?.email}`}>my Cars</NavLink></li>
-                    {console.log(user?.email)}
                 </> 
 
     return (

@@ -1,10 +1,81 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
+import React, { useContext, useEffect, useState } from 'react';
+import { useLoaderData, useNavigate } from 'react-router';
+import { MyContext } from '../MyContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Details = () => {
 
+    const [from, setFrom] = useState("");
+    const [to, setTo] = useState("");
+    const [totalDays, setTotalDays] = useState(0);
+
+    useEffect(() => {
+        if (from && to) {
+            const start = new Date(from);
+            const end = new Date(to);
+            const diff = end - start;
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            setTotalDays(days > 0 ? days : 0);
+        }
+    }, [from, to]);
+
     const car = useLoaderData();
-    console.log(car)
+
+    const {user} = useContext(MyContext);
+    const navigate = useNavigate();
+
+    const handelbooking = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const rawData = Object.fromEntries(formData.entries());
+
+        if(rawData.from>rawData.to){
+            return(toast.error("Invalide date. Please inter a valid date.", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    }))
+        }
+
+        const postData = {
+            user: user?.email,
+            dailyRentalPrice: car.dailyRentalPrice,
+            booking_id : car._id,
+            from : rawData.from,
+            to : rawData.to,
+            status : "Pending"
+        };
+        console.log(postData)
+        
+        //send to db
+        axios.post('http://localhost:3000/bookings', postData)
+        .then(response => {
+        console.log('Success:', response.data);
+        toast.success('Booking successful!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
+        navigate("/");
+        })
+        .catch(error => {
+        console.error('Error:', error);
+        toast.error('Upload failed!');
+        });
+
+        
+    };
 
     return (
         <div className="card bg-base-100 max-w-3xl mx-auto shadow-sm my-16">
@@ -32,13 +103,18 @@ const Details = () => {
                             {/* if there is a button in form, it will close the modal */}
                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                         </form>
-                        <fieldset className="fieldset">
+                        <div className="">
+                            <p>You are booking {car.carModel}</p>
+                            <p>per day : {car.dailyRentalPrice} </p>
+                        </div>
+                        <form onSubmit={handelbooking} className="fieldset">
                             <label className="label">From</label>
-                            <input type="date" className="input" />
+                            <input type="date" className="input" name='from' value={from} onChange={(e) => setFrom(e.target.value)} />
                             <label className="label">To</label>
-                            <input type="date" className="input" />
+                            <input type="date" className="input" name='to' value={to} onChange={(e) => setTo(e.target.value)} />
+                            <div className="text-lg font-[600]">Total: <span className='text-green-500'>{totalDays*car.dailyRentalPrice}</span> BDT</div>
                             <button className="btn btn-neutral mt-4">Confirm Booking</button>
-                        </fieldset>
+                        </form>
                     </div>
                 </div>
                         
