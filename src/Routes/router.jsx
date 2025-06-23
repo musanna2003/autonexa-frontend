@@ -11,6 +11,7 @@ import PrivetRoute from './PrivetRoute';
 import MyCars from '../Pages/MyCars';
 import MyBookings from '../Pages/MyBookings';
 import ErrorPage from '../Pages/ErrorPage';
+import Edit from '../Pages/Edit';
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
                 path : "/cars/details/:id",
                 loader : ({params}) => fetch(`http://localhost:3000/cars/details/${params.id}`),
                 element : <PrivetRoute><Details></Details></PrivetRoute>
+            },
+            {
+                path : "/cars/edit/:id",
+                loader : ({params}) => fetch(`http://localhost:3000/cars/details/${params.id}`),
+                element : <PrivetRoute><Edit></Edit></PrivetRoute>
             },
             {
                 path : "/available",

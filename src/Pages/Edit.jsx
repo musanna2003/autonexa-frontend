@@ -33,9 +33,10 @@ const Edit = () => {
         console.log(postData)
         
         //send to db
-        axios.post('http://localhost:3000/cars', postData)
+        axios.patch(`http://localhost:3000/cars/details/${car._id}`, postData)
         .then(response => {
         console.log('Success:', response.data);
+        
         toast.success('Update successful!', {
             position: "top-right",
             autoClose: 5000,

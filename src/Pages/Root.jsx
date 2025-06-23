@@ -8,25 +8,26 @@ import StickyNavbar from '../Components/StickyNavbar';
 import LoadingPage from './LoadingPage';
 
 const Root = () => {
-    
     const navigation = useNavigation();
-    if (navigation.state === "loading"){
-        return <LoadingPage></LoadingPage>
-    }
+    const isRouting = navigation.state === "loading";
 
     return (
-        <div>
-            <div className='min-h-screen flex flex-col justify-between'>
-                <ScrollToTop />
-                <StickyNavbar></StickyNavbar>
+        <div className='min-h-screen flex flex-col justify-between relative'>
+            <ScrollToTop />
+            <StickyNavbar />
 
-                <Suspense fallback={<LoadingPage />}>
-                    <Outlet />
-                </Suspense>
+            {isRouting && (
+                <div className="">
+                    <LoadingPage />
+                </div>
+            )}
 
-                <Footer></Footer>
-            </div>
-            <ToastContainer></ToastContainer>
+            <Suspense fallback={<LoadingPage />}>
+                <Outlet />
+            </Suspense>
+
+            <Footer />
+            <ToastContainer />
         </div>
     );
 };

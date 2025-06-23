@@ -42,8 +42,11 @@ const Tr2 = ({booking, index}) => {
                 <button className='btn' onClick={()=>document.getElementById('my_modal_5').showModal()}><CiTrash /></button>
                 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
-                        <h3 className="font-bold text-lg">Hello!</h3>
-                        <p className="py-4">Press ESC key or click the button below to close</p>
+                        <h3 className="font-bold text-lg">Are you sure?</h3>
+                        <p className="py-4 font-[400]">
+                            This action will permanently delete the item. <br />
+                            This cannot be undone.
+                        </p>
                         <div className="modal-action ">
                             <form className='flex gap-2' method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
