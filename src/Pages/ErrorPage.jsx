@@ -6,9 +6,9 @@ import { Link } from 'react-router';
 const ErrorPage = () => {
     return (
         <div className='w-full min-h-screen flex flex-col justify-center items-center'>
-            <div className="">
+            <div className=" flex flex-col justify-center items-center ">
                 <Lottie animationData={groovyWalkAnimation} loop={true} />
-                <Link className='btn btn-primary' to={"/"}>Go To Home</Link>
+                <Link className='btn w-fit btn-primary' to={"/"}>Go To Home</Link>
             </div>
         </div>
     );
