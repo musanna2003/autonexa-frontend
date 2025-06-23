@@ -10,10 +10,12 @@ import Addcars from '../Pages/Addcars';
 import PrivetRoute from './PrivetRoute';
 import MyCars from '../Pages/MyCars';
 import MyBookings from '../Pages/MyBookings';
+import ErrorPage from '../Pages/ErrorPage';
 
 const router = createBrowserRouter([
     {
         path : '/',
+        errorElement: <ErrorPage></ErrorPage>,
         Component : Root,
         children: [
             {

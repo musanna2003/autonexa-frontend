@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { MyContext } from '../MyContext';
 import { Navigate, useLocation } from 'react-router';
+import LoadingPage from '../Pages/LoadingPage';
 
 const PrivetRoute = ({children}) => {
     const {user, loading} = useContext(MyContext);
@@ -8,7 +9,7 @@ const PrivetRoute = ({children}) => {
     
     if (loading){
         return <div className=" w-full h-screen flex justify-center items-center">
-            <span className="loading loading-infinity loading-xl"></span>
+            <LoadingPage></LoadingPage>
         </div>
     }
     if (!user){
