@@ -76,6 +76,9 @@ const Details = () => {
             theme: "colored",
         });
         navigate(`/bookings/${user?.email}`);
+        axios.patch(`http://localhost:3000/cars/count/${car._id}?action=increase`)
+        .then(res => console.log(res.data))
+        .catch(err => console.error(err));
         })
         .catch(error => {
         console.error('Error:', error);

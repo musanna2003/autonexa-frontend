@@ -44,7 +44,7 @@ const Addcars = () => {
             progress: undefined,
             theme: "colored",
         });
-        navigate("/");
+        navigate(`/mycars/${user.email}`);
         })
         .catch(error => {
         console.error('Error:', error);

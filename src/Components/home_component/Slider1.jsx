@@ -5,7 +5,7 @@ const Slider1 = () => {
     return (
         <div className="w-[90vw] md:w-[90vw] mx-auto ">
             <div
-                className="hero h-[35vw] rounded-2xl"
+                className="hero h-[60vw] md:h-[35vw] rounded-2xl"
                 style={{
                     backgroundImage:
                     "url(https://images.pexels.com/photos/733745/pexels-photo-733745.jpeg)",

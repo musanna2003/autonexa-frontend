@@ -77,11 +77,13 @@ const AvailableCars = () => {
 
                     <div className="flex text-4xl items-center gap-1.5">
                         {/* View Toggle */}
-                        <label className="swap">
-                            <input type="checkbox" onChange={handleViewToggle} />
-                            <div className="swap-on"><CiGrid41 /></div>
-                            <div className="swap-off"><CiGrid2H /></div>
-                        </label>
+                        <div className=" hidden md:block">
+                            <label className="swap">
+                                <input type="checkbox" onChange={handleViewToggle} />
+                                <div className="swap-on"><CiGrid41 /></div>
+                                <div className="swap-off"><CiGrid2H /></div>
+                            </label>
+                        </div>
 
                         {/* Sort Dropdown */}
                         <div className="dropdown dropdown-end">

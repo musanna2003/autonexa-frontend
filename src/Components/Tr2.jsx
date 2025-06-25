@@ -108,6 +108,9 @@ const Tr2 = ({booking, index}) => {
         });
 
         navigate(`/bookings/${user?.email}`);
+        axios.patch(`http://localhost:3000/cars/count/${booking.carDetails._id}?action=decrease`)
+        .then(res => console.log(res.data))
+        .catch(err => console.error(err));
         })
         .catch(error => {
         console.error('Error:', error);
