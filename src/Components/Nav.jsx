@@ -19,7 +19,7 @@ const Nav = () => {
 
     const nav = <>
                     <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/available/def">Available Cars</NavLink></li>
+                    <li><NavLink to="/available">Available Cars</NavLink></li>
                     <li><NavLink to="/addcar">Add Car</NavLink></li>
                     <li><NavLink to={`/mycars/${user?.email}`}>My Cars</NavLink></li>
                     <li><NavLink to={`/bookings/${user?.email}`}>My Bookings</NavLink></li>
@@ -60,7 +60,7 @@ const Nav = () => {
                             <div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button" className="mx-[1vw]">
                                     
-                                        <img className=" w-10 rounded-full" src={ user.photoURL || "https://i.ibb.co.com/NdFHxWHB/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg"} />
+                                        <img className=" w-10 h-10 rounded-full" src={ user.photoURL || "https://i.ibb.co.com/NdFHxWHB/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg"} />
                                    
                                 </div>
                                 <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">

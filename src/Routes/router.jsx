@@ -36,8 +36,7 @@ const router = createBrowserRouter([
                 element : <PrivetRoute><Edit></Edit></PrivetRoute>
             },
             {
-                path : "/available/:sort",
-                loader : ({params}) => fetch(`http://localhost:3000/cars/${params.sort}`),
+                path : "/available",
                 element : <AvailableCars></AvailableCars>
             },
             {
