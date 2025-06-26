@@ -1,34 +1,29 @@
 import axios from 'axios';
-import React, { useContext } from 'react';
+import React from 'react';
 import { CiTrash } from "react-icons/ci";
 import { CiEdit } from "react-icons/ci";
-import { Link, useNavigate } from 'react-router';
+import { Link} from 'react-router';
 import { toast } from 'react-toastify';
 import { MyContext } from '../MyContext';
 
 const TableRow = ({car, index}) => {
-    const {user} = useContext(MyContext);
-    const navigate = useNavigate();
 
     const handelDelete = () =>{
 
-        axios.delete(`http://localhost:3000/cars/details/${car._id}`, {
-        })
+        axios.delete(`http://localhost:3000/cars/details/${car._id}`,{ withCredentials: true })
         .then(response => {
-        console.log('Success:', response.data);
+            console.log('Success:', response.data);
 
-        toast.success('Delete successful!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-        });
-
-        navigate(`/mycars/${user?.email}`);
+            toast.success('Delete successful!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
         })
         .catch(error => {
         console.error('Error:', error);
@@ -70,12 +65,12 @@ const TableRow = ({car, index}) => {
             </td>
             <th>
                 <Link to={`/cars/edit/${car._id}`} className='btn'><CiEdit /></Link>
-                <button className='btn' onClick={()=>document.getElementById('my_modal_5').showModal()}><CiTrash /></button>
-                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                <button className='btn' onClick={()=>document.getElementById(car._id).showModal()}><CiTrash /></button>
+                <dialog id={car._id} className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Are you sure?</h3>
                         <p className="py-4 font-[400]">
-                            This action will permanently delete the item. <br />
+                            This action will permanently delete the {car.carModel}. <br />
                             This cannot be undone.
                         </p>
                         <div className="modal-action ">

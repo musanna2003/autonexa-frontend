@@ -64,7 +64,7 @@ const Tr2 = ({booking, index}) => {
         console.log(postData)
         
         //send to db
-        axios.patch(`http://localhost:3000/bookings/${booking._id}`, postData)
+        axios.patch(`http://localhost:3000/bookings/${booking._id}`, postData,{ withCredentials: true })
         .then(response => {
         console.log('Success:', response.data);
         toast.success('Update successful!', {
@@ -91,8 +91,7 @@ const Tr2 = ({booking, index}) => {
 
     const handelDelete = () =>{
 
-        axios.delete(`http://localhost:3000/bookings/${booking._id}`, {
-        })
+        axios.delete(`http://localhost:3000/bookings/${booking._id}`, { withCredentials: true })
         .then(response => {
         console.log('Success:', response.data);
 

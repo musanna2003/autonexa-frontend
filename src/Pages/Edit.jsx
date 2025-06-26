@@ -28,12 +28,12 @@ const Edit = () => {
             imageUrl: rawData.img,
             location: rawData.location,
             count: 0,
-            date: new Date().toISOString(),
+            date: car.date,
         };
         console.log(postData)
         
         //send to db
-        axios.patch(`http://localhost:3000/cars/details/${car._id}`, postData)
+        axios.patch(`http://localhost:3000/cars/details/${car._id}`, postData ,{ withCredentials: true })
         .then(response => {
         console.log('Success:', response.data);
         

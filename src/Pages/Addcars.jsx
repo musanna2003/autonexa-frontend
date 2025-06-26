@@ -31,7 +31,7 @@ const Addcars = () => {
         console.log(postData)
         
         //send to db
-        axios.post('http://localhost:3000/cars', postData)
+        axios.post('http://localhost:3000/cars', postData,{ withCredentials: true })
         .then(response => {
         console.log('Success:', response.data);
         toast.success('Upload successful!', {

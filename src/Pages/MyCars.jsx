@@ -1,14 +1,35 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
-import Card from '../Components/Card';
+import React, { useContext, useEffect, useState } from 'react';
 import TableRow from '../Components/TableRow';
+import axios from 'axios';
+import LoadingPage from './LoadingPage';
+import { MyContext } from '../MyContext';
 
 const MyCars = () => {
-    const cars = useLoaderData();
+    const [cars, setCars] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const {user} = useContext(MyContext);
+
+    useEffect(() => {
+        setLoading(true);
+        axios.get(`http://localhost:3000/mycars/${user.email}`, { withCredentials: true })
+            .then(res => {
+                setCars(res.data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error(err);
+                setLoading(false);
+            });
+    }, []);
+
+    if (loading) {
+        return <LoadingPage />;
+    }
+
 
     return (
-        <div className='w-[90vw] md:w[90vw] mx-auto space-y-10'>
-            <div className='text-4xl font-bold'>My Cars</div>
+        <div className='w-[90vw] md:w[90vw] mt-10 mx-auto space-y-10'>
+            {/* <div className='text-4xl font-bold'>My Cars</div> */}
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

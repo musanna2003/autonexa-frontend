@@ -12,21 +12,28 @@ const Root = () => {
     const isRouting = navigation.state === "loading";
 
     return (
-        <div className='min-h-screen flex flex-col justify-between relative'>
+        <div className="">
             <ScrollToTop />
-            <StickyNavbar />
+            <div className='min-h-screen flex flex-col justify-between relative'>
 
-            {isRouting && (
+                
+
                 <div className="">
-                    <LoadingPage />
+                    <StickyNavbar />
+                    {isRouting && (
+                        <div className="">
+                            <LoadingPage />
+                        </div>
+                    )}
+
+                    <Suspense fallback={<LoadingPage />}>
+                        <Outlet />
+                    </Suspense>
                 </div>
-            )}
 
-            <Suspense fallback={<LoadingPage />}>
-                <Outlet />
-            </Suspense>
-
-            <Footer />
+                <Footer />
+                
+            </div>
             <ToastContainer />
         </div>
     );

@@ -40,13 +40,12 @@ const router = createBrowserRouter([
                 element : <AvailableCars></AvailableCars>
             },
             {
-                path : "/mycars/:email",
-                loader : ({params}) => fetch(`http://localhost:3000/mycars/${params.email}`),
-                element : <PrivetRoute><MyCars></MyCars></PrivetRoute>
+                path: "/mycars/:email",
+                element: <PrivetRoute><MyCars /></PrivetRoute>
             },
+
             {
                 path : "/bookings/:email",
-                loader : ({params}) => fetch(`http://localhost:3000/bookings/${params.email}`),
                 element : <PrivetRoute><MyBookings></MyBookings></PrivetRoute>
             },
             {

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { MyContext } from '../MyContext';
+import axios from 'axios';
 
 const Nav = () => {
 
@@ -9,6 +10,8 @@ const Nav = () => {
     const handelLogout = () =>{
         signOutUser().then(() => {
             // Sign-out successful.
+            axios.post(`http://localhost:3000/logout`, {}, { withCredentials: true })
+            .then(res => console.log('Logged out', res));
            
             navigate("login")
           }).catch((error) => {
@@ -20,9 +23,11 @@ const Nav = () => {
     const nav = <>
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/available">Available Cars</NavLink></li>
-                    <li><NavLink to="/addcar">Add Car</NavLink></li>
+                    {
+                        user && <><li><NavLink to="/addcar">Add Car</NavLink></li>
                     <li><NavLink to={`/mycars/${user?.email}`}>My Cars</NavLink></li>
-                    <li><NavLink to={`/bookings/${user?.email}`}>My Bookings</NavLink></li>
+                    <li><NavLink to={`/bookings/${user?.email}`}>My Bookings</NavLink></li></>
+                    }
                 </> 
 
     return (

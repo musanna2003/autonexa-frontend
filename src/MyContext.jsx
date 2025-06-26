@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { auth } from '../src/firebase.init';
+import axios from 'axios';
 export const MyContext = createContext();
 const provider = new GoogleAuthProvider();
 
@@ -30,15 +31,30 @@ export const MyProvider = ({ children }) => {
         return signOut(auth)
     }
 
-    useEffect(() =>{
-        const unSubscribe = onAuthStateChanged(auth,(currentUser) => {
-        
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
             setUser(currentUser);
             setLoading(false);
-        })
-        return () => unSubscribe()
 
-    },[])
+            if (currentUser) {
+                const idToken = await currentUser.getIdToken();
+
+                // ✅ Send token to backend to generate cookie
+                await axios.post('http://localhost:3000/jwt', 
+                    { idToken }, 
+                    { withCredentials: true }
+                );
+            } else {
+                // ✅ Optional: handle logout, clear cookie if needed
+                await axios.post('http://localhost:3000/logout', {}, { withCredentials: true });
+            }
+
+            
+        });
+
+        return () => unSubscribe();
+    }, []);
+
 
     return (
         <MyContext.Provider value={{ createUser, signInUser,googleSignIn, user, signOutUser, loading}}>
