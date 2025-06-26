@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 
 const Login = () => {
+    document.title = `Login | AutoNexa`;
 
     const {signInUser , googleSignIn} = useContext(MyContext);
     const navigate = useNavigate();
@@ -100,19 +101,19 @@ const Login = () => {
                     <div className="hero min-h-screen">
                         <div className="hero-content flex-col lg:flex-row-reverse">
                             <div className="text-center lg:text-left">
-                            <h1 className="text-5xl font-bold">Login now!</h1>
-                            <p className="py-6">
-                                Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                                quasi. In deleniti eaque aut repudiandae et a id nisi.
-                            </p>
+                                <h1 className="text-5xl font-bold">Login Now</h1>
+                                <p className="py-6">
+                                    Access your account to manage bookings, check your orders, and enjoy personalized services. 
+                                    Enter your credentials below to continue.
+                                </p>
                             </div>
-                            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                            <div className="card bg-white/10 backdrop-blur-md border border-white/20 w-full max-w-sm shrink-0 shadow-2xl">
                                 <div className="card-body">
                                     <form onSubmit={handelSignIn} className="fieldset">
                                         <label className="label">Email</label>
-                                        <input type="email" className="input" placeholder="Email" name='email' />
+                                        <input type="email" className="input w-full bg-transparent" placeholder="Email" name='email' />
                                         <label className="label">Password</label>
-                                        <input type="password" className="input" placeholder="Password" name='password' />
+                                        <input type="password" className="input w-full bg-transparent" placeholder="Password" name='password' />
                                         <div><a className="link link-hover">Forgot password?</a></div>
                                         <button className="btn btn-neutral mt-4">Login</button>
                                     </form>

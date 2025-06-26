@@ -10,7 +10,7 @@ const TableRow = ({car, index}) => {
 
     const handelDelete = () =>{
 
-        axios.delete(`http://localhost:3000/cars/details/${car._id}`,{ withCredentials: true })
+        axios.delete(`https://ph-assignment-11-backend.vercel.app/cars/details/${car._id}`,{ withCredentials: true })
         .then(response => {
             console.log('Success:', response.data);
 

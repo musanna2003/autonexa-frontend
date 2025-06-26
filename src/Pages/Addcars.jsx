@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router';
 
 const Addcars = () => {
 
+    document.title = `Add car | AutoNexa`;
+
     const {user} = useContext(MyContext);
     const navigate = useNavigate();
 
@@ -31,7 +33,7 @@ const Addcars = () => {
         console.log(postData)
         
         //send to db
-        axios.post('http://localhost:3000/cars', postData,{ withCredentials: true })
+        axios.post('https://ph-assignment-11-backend.vercel.app/cars', postData,{ withCredentials: true })
         .then(response => {
         console.log('Success:', response.data);
         toast.success('Upload successful!', {

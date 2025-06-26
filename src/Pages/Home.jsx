@@ -7,7 +7,7 @@ import { useLoaderData } from 'react-router';
 import Stat from '../Components/home_component/Stat';
 
 const Home = () => {
-
+    document.title = `Home | AutoNexa`;
     const cars = useLoaderData();
 
     return (

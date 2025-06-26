@@ -40,13 +40,13 @@ export const MyProvider = ({ children }) => {
                 const idToken = await currentUser.getIdToken();
 
                 // ✅ Send token to backend to generate cookie
-                await axios.post('http://localhost:3000/jwt', 
+                await axios.post('https://ph-assignment-11-backend.vercel.app/jwt', 
                     { idToken }, 
                     { withCredentials: true }
                 );
             } else {
                 // ✅ Optional: handle logout, clear cookie if needed
-                await axios.post('http://localhost:3000/logout', {}, { withCredentials: true });
+                await axios.post('https://ph-assignment-11-backend.vercel.app/logout', {}, { withCredentials: true });
             }
 
             

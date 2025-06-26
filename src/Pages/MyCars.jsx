@@ -11,7 +11,7 @@ const MyCars = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost:3000/mycars/${user.email}`, { withCredentials: true })
+        axios.get(`https://ph-assignment-11-backend.vercel.app/mycars/${user.email}`, { withCredentials: true })
             .then(res => {
                 setCars(res.data);
                 setLoading(false);

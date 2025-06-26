@@ -64,7 +64,7 @@ const Tr2 = ({booking, index}) => {
         console.log(postData)
         
         //send to db
-        axios.patch(`http://localhost:3000/bookings/${booking._id}`, postData,{ withCredentials: true })
+        axios.patch(`https://ph-assignment-11-backend.vercel.app/bookings/${booking._id}`, postData,{ withCredentials: true })
         .then(response => {
         console.log('Success:', response.data);
         toast.success('Update successful!', {
@@ -91,7 +91,7 @@ const Tr2 = ({booking, index}) => {
 
     const handelDelete = () =>{
 
-        axios.delete(`http://localhost:3000/bookings/${booking._id}`, { withCredentials: true })
+        axios.delete(`https://ph-assignment-11-backend.vercel.app/bookings/${booking._id}`, { withCredentials: true })
         .then(response => {
         console.log('Success:', response.data);
 
@@ -107,7 +107,7 @@ const Tr2 = ({booking, index}) => {
         });
 
         navigate(`/bookings/${user?.email}`);
-        axios.patch(`http://localhost:3000/cars/count/${booking.carDetails._id}?action=decrease`)
+        axios.patch(`https://ph-assignment-11-backend.vercel.app/cars/count/${booking.carDetails._id}?action=decrease`)
         .then(res => console.log(res.data))
         .catch(err => console.error(err));
         })

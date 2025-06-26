@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
 
+document.title = `Registration | AutoNexa`;
+
 const Register = () => {
 
     const { createUser } = useContext(MyContext);
@@ -81,23 +83,22 @@ const Register = () => {
                     <div className="hero min-h-screen">
                         <div className="hero-content flex-col lg:flex-row-reverse">
                             <div className="text-center lg:text-left">
-                            <h1 className="text-5xl font-bold">Register now!</h1>
-                            <p className="py-6">
-                                Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                                quasi. In deleniti eaque aut repudiandae et a id nisi.
-                            </p>
+                                <h1 className="text-5xl font-bold">Create an Account</h1>
+                                <p className="py-6">
+                                    Join us today! Create your account to book cars, manage your bookings, and enjoy exclusive features.
+                                </p>
                             </div>
-                            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                            <div className="card bg-white/10 backdrop-blur-md border border-white/20 w-full max-w-sm shrink-0 shadow-2xl">
                                 <div className="card-body">
                                     <form onSubmit={handleRegister} className="fieldset">
                                         <label className="label">Name</label>
-                                        <input type="text" className="input" placeholder="Name" name='name' />
+                                        <input type="text" className="input w-full bg-transparent" placeholder="Name" name='name' />
                                         <label className="label">Email</label>
-                                        <input type="email" className="input" placeholder="Email" name='email' />
+                                        <input type="email" className="input w-full bg-transparent" placeholder="Email" name='email' />
                                         <label className="label">Password</label>
-                                        <input type="password" className="input" placeholder="Password" name='password' />
+                                        <input type="password" className="input w-full bg-transparent" placeholder="Password" name='password' />
                                         <label className="label">Photo URL</label>
-                                        <input type="url" className="input" placeholder="Photo URL" name='photo' />
+                                        <input type="url" className="input w-full bg-transparent" placeholder="Photo URL" name='photo' />
                                         <button className="btn btn-neutral mt-4">Register</button>
                                     </form>
                                     <div className='text-start'>

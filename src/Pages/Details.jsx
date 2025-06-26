@@ -8,6 +8,8 @@ const Details = () => {
 
     const car = useLoaderData();
 
+    document.title = `${car.carModel} | AutoNexa`;
+
     const {user} = useContext(MyContext);
     const navigate = useNavigate();
 
@@ -62,7 +64,7 @@ const Details = () => {
         console.log(postData)
         
         //send to db
-        axios.post('http://localhost:3000/bookings', postData,{ withCredentials: true })
+        axios.post('https://ph-assignment-11-backend.vercel.app/bookings', postData,{ withCredentials: true })
         .then(response => {
         console.log('Success:', response.data);
         toast.success('Booking successful!', {
@@ -76,7 +78,7 @@ const Details = () => {
             theme: "colored",
         });
         navigate(`/bookings/${user?.email}`);
-        axios.patch(`http://localhost:3000/cars/count/${car._id}?action=increase`)
+        axios.patch(`https://ph-assignment-11-backend.vercel.app/cars/count/${car._id}?action=increase`)
         .then(res => console.log(res.data))
         .catch(err => console.error(err));
         })

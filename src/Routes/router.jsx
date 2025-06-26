@@ -22,17 +22,17 @@ const router = createBrowserRouter([
             {
                 index : true,
                 path : "/",
-                loader : () => fetch("http://localhost:3000/cars"),
+                loader : () => fetch("https://ph-assignment-11-backend.vercel.app/cars"),
                 Component : Home,
             },
             {
                 path : "/cars/details/:id",
-                loader : ({params}) => fetch(`http://localhost:3000/cars/details/${params.id}`),
+                loader : ({params}) => fetch(`https://ph-assignment-11-backend.vercel.app/cars/details/${params.id}`),
                 element : <PrivetRoute><Details></Details></PrivetRoute>
             },
             {
                 path : "/cars/edit/:id",
-                loader : ({params}) => fetch(`http://localhost:3000/cars/details/${params.id}`),
+                loader : ({params}) => fetch(`https://ph-assignment-11-backend.vercel.app/cars/details/${params.id}`),
                 element : <PrivetRoute><Edit></Edit></PrivetRoute>
             },
             {

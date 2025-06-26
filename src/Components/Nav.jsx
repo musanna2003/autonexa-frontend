@@ -10,7 +10,7 @@ const Nav = () => {
     const handelLogout = () =>{
         signOutUser().then(() => {
             // Sign-out successful.
-            axios.post(`http://localhost:3000/logout`, {}, { withCredentials: true })
+            axios.post(`https://ph-assignment-11-backend.vercel.app/logout`, {}, { withCredentials: true })
             .then(res => console.log('Logged out', res));
            
             navigate("login")
@@ -33,7 +33,7 @@ const Nav = () => {
     return (
         <div className="navbar bg-primary/80 backdrop-blur-md shadow-md sticky top-0 z-50">
             <div className="navbar-start">
-                <a href='/' className="btn btn-ghost text-xl">AutoNexa</a>
+                <a href='/' className="btn p-2 btn-ghost hover:border-0 hover:bg-transparent border-0 text-xl"><img className=' w-6' src="/Screenshot_2025-06-26_164900-removebg-preview.png" alt="" /> AutoNexa</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

@@ -14,6 +14,8 @@ const AvailableCars = () => {
     const [gridView, setGridView] = useState(false); // true = Card, false = Card2
     const [loading, setLoading] = useState(false);
 
+    document.title = `Available cars | AutoNexa`;
+
     const handelSearch = (e) =>{
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -31,7 +33,7 @@ const AvailableCars = () => {
             const fetchCars = async () => {
                 setLoading(true);
                 try {
-                    const res = await axios.get('http://localhost:3000/available', {
+                    const res = await axios.get('https://ph-assignment-11-backend.vercel.app/available', {
                         params: {
                             search: search,
                             sort: sort

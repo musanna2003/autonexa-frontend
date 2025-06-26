@@ -6,6 +6,8 @@ import { toast } from 'react-toastify';
 
 const Edit = () => {
 
+    document.title = `Edit | AutoNexa`;
+
     const {user} = useContext(MyContext);
     const navigate = useNavigate();
 
@@ -33,7 +35,7 @@ const Edit = () => {
         console.log(postData)
         
         //send to db
-        axios.patch(`http://localhost:3000/cars/details/${car._id}`, postData ,{ withCredentials: true })
+        axios.patch(`https://ph-assignment-11-backend.vercel.app/cars/details/${car._id}`, postData ,{ withCredentials: true })
         .then(response => {
         console.log('Success:', response.data);
         

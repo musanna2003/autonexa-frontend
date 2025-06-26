@@ -9,10 +9,11 @@ const MyBookings = () => {
     const [bookings, setBookings] = useState([]);
     const [loading, setLoading] = useState(true);
     const {user} = useContext(MyContext);
+    document.title = `${user.name}'s bookings | AutoNexa`;
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost:3000/bookings/${user.email}`, { withCredentials: true })
+        axios.get(`https://ph-assignment-11-backend.vercel.app/bookings/${user.email}`, { withCredentials: true })
             .then(res => {
                 setBookings(res.data);
                 setLoading(false);
