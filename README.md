@@ -6,7 +6,7 @@ Autonexa is a modern car rental web application that allows users to browse, boo
 🔗 **Live Site:** [https://autonexa.vercel.app/](https://autonexa.vercel.app/)
 
 ## 🖼️ Screenshot
-![Autonexa Screenshot](assets/autonexa-screenshot.png)
+![Autonexa Screenshot](src/assets/autonexa_ss.png)
 
 ## ⚙️ Technologies Used
 React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Firebase Auth
