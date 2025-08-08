@@ -10,7 +10,7 @@ const Why_Choose_Us = () => {
     return (
         <div className='w-[90vw] md:w[90vw] xl:w-[75vw]  mx-auto space-y-10'>
             <div className='text-4xl font-bold'>Why Choose Us</div>
-            <div className="grid grid-cols-2 md:grid-cols-4">
+            <div className="grid gap-3 grid-cols-2 md:grid-cols-4">
 
 
                 <div className=" card bg-base-100 shadow-sm">

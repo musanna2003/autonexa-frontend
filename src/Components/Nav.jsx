@@ -31,7 +31,7 @@ const Nav = () => {
                 </> 
 
     return (
-        <div className="navbar bg-primary/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+        <div className="navbar text-white bg-primary/80 backdrop-blur-md shadow-md sticky top-0 z-50">
             <div className="navbar-start">
                 <a href='/' className="btn p-2 btn-ghost hover:border-0 hover:bg-transparent border-0 text-xl"><img className=' w-6' src="/Screenshot_2025-06-26_164900-removebg-preview.png" alt="" /> AutoNexa</a>
             </div>

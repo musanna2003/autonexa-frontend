@@ -9,6 +9,8 @@ const MyCars = () => {
     const [loading, setLoading] = useState(true);
     const {user} = useContext(MyContext);
 
+    document.title = `${user.name}'s cars | AutoNexa`;
+
     useEffect(() => {
         setLoading(true);
         axios.get(`https://ph-assignment-11-backend.vercel.app/mycars/${user.email}`, { withCredentials: true })
