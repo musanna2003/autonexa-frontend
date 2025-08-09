@@ -3,10 +3,10 @@
 ## 📄 Description
 Autonexa is a modern car rental web application that allows users to browse, book, and manage car rentals with ease.
 
-🔗 **Live Site:** [https://autonexa.vercel.app/](https://autonexa.vercel.app/)
+🔗 **Live Site:** [https://ph-assignment-11-56f1e.web.app/](https://ph-assignment-11-56f1e.web.app/)
 
 ## 🖼️ Screenshot
-![Autonexa Screenshot](assets/autonexa-screenshot.png)
+![Autonexa Screenshot](src/assets/autonexa_ss.png)
 
 ## ⚙️ Technologies Used
 React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Firebase Auth
