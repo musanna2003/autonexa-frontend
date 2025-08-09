@@ -23,12 +23,13 @@ const Nav = () => {
     const nav = <>
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/available">Available Cars</NavLink></li>
-                    <li><NavLink to="/available">About Us</NavLink></li>
+                    
                     {
                         user && <><li><NavLink to="/addcar">Add Car</NavLink></li>
                     <li><NavLink to={`/mycars/${user?.email}`}>My Cars</NavLink></li>
                     <li><NavLink to={`/bookings/${user?.email}`}>My Bookings</NavLink></li></>
                     }
+                    <li><NavLink to="/about">About Us</NavLink></li>
                 </> 
 
     return (
