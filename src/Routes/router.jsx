@@ -13,6 +13,7 @@ import MyBookings from '../Pages/MyBookings';
 import ErrorPage from '../Pages/ErrorPage';
 import Edit from '../Pages/Edit';
 import About from '../Pages/About';
+import Contact from '../Pages/Contact';
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
             {
                 path : "/about",
                 Component : About
+            },
+            {
+                path : "/contact",
+                Component : Contact
             }
         ]
     }
